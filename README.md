@@ -53,5 +53,7 @@
 ### 画面遷移図
 Figma：https://www.figma.com/file/VmF8Vpb6uqjWa7tCQJ4VDg/clip_diary?type=design&mode=design&t=ROH49Y5A00LJvBSb-0
 
+### ER図
+https://i.gyazo.com/945eb8c085f2f31a9b9b3a5c2009c8d9.png
 
 
