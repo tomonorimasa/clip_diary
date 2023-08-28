@@ -16,7 +16,7 @@
           </a>
 
           <div class="dropdown-menu dropdown-menu-right">
-            <%= link_to 'ログイン', '#', class: 'dropdown-item' %>
+            <%= link_to 'ログイン', login_path, class: 'dropdown-item' %>
             <%= link_to 'ゲストログイン', '#', class: 'dropdown-item' %>
           </div>
         </li>
@@ -34,7 +34,7 @@
             <div class="dropdown-divider"></div>
             <%= link_to 'プロフィール', '#', class: 'dropdown-item' %>
 
-            <%= link_to 'ログアウト', '#', class: 'dropdown-item' %>
+            <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :delete %>
           </div>
         </li>
       </ul>
