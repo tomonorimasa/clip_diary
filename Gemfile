@@ -67,3 +67,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'sorcery', '0.14.0'
 gem 'pry-byebug'
+
+gem 'draper'
