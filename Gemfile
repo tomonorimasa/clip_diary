@@ -69,3 +69,5 @@ gem 'sorcery', '0.14.0'
 gem 'pry-byebug'
 
 gem 'draper'
+gem 'carrierwave'
+gem 'faker'

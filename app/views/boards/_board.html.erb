@@ -1,0 +1,28 @@
+<div class="col-sm-12 col-lg-4 mb-3">
+  <div id="board-id-<%= board.id %>">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">
+          <a href="#">
+            <%= board.title %>
+          </a>
+        </h4>
+        <div class='mr10 float-right'>
+          <a href="#"><%= icon 'fas', 'trash', class: 'pr-1' %></a>
+          <a href="#"><%= icon 'fa', 'pen' %></a>
+        </div>
+        <p class="card-text"><%= board.body %></p>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <%= icon 'far', 'user' %>
+            <%= board.user.decorate.nickname %>
+          </li>
+          <li class="list-inline-item">
+            <%= icon 'far', 'calendar' %>
+            <%= l board.created_at, format: :long %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
