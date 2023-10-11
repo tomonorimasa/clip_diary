@@ -8,6 +8,7 @@
 /.bundle
 /vendor
 .DS_Store
+/public/uploads/board/video/
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -32,3 +33,4 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 vendor/bundle/ruby/2.6.0/gems/ffi-1.15.5/ext/ffi_c/DynamicLibrary.o
+public/uploads/board/video/71/mov_hts-samp001.mp4
