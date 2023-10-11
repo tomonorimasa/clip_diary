@@ -8,6 +8,10 @@
     <%= f.label :body %>
     <%= f.text_area :body, class: 'form-control', rows: 10 %>
   </div>
+  <div class="field">
+    <%= f.label :video %><br>
+    <%= f.file_field :video, :accept => 'video/*' %>
+  </div>
 
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
