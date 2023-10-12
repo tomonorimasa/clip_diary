@@ -3,15 +3,10 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">
-          <a href="#">
-            <%= board.title %>
-          </a>
+          <%= link_to board.title, board_path(board) %>
         </h4>
         <%= video_tag board.video.url, controls: true, class: 'video-player' if board.video.present? %>
-        <div class='mr10 float-right'>
-          <a href="#"><%= icon 'fas', 'trash', class: 'pr-1' %></a>
-          <a href="#"><%= icon 'fa', 'pen' %></a>
-        </div>
+        <%= render 'crud_menus', board: board %>
         <p class="card-text"><%= board.body %></p>
         <ul class="list-inline">
           <li class="list-inline-item">

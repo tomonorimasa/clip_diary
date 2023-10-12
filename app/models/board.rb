@@ -1,6 +1,7 @@
 class Board < ApplicationRecord
   mount_uploader :video, VideoUploader
   belongs_to :user
+  has_many :comments, dependent: :destroy
 
   has_many :boards, dependent: :destroy
   validates :title, presence: true, length: { maximum: 255 }
