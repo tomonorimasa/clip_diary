@@ -6,7 +6,7 @@
           <%= link_to board.title, board_path(board) %>
         </h4>
         <%= video_tag board.video.url, controls: true, class: 'video-player' if board.video.present? %>
-        <%= render 'crud_menus', board: board %>
+        <%= render 'crud_menus', board: board if current_user.own?(board) %>
         <p class="card-text"><%= board.body %></p>
         <ul class="list-inline">
           <li class="list-inline-item">
