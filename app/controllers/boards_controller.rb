@@ -23,6 +23,26 @@ class BoardsController < ApplicationController
     @comments = @board.comments.includes(:user).order(created_at: :desc)
   end
 
+  def edit
+    @board = current_user.boards.find(params[:id])
+  end
+
+  def update
+    @board = current_user.boards.find(params[:id])
+    if @board.update(board_params)
+      redirect_to @board, success: '投稿を更新しました'
+    else
+      flash.now['danger'] = '投稿を更新できませんでした'
+      render :edit
+    end
+  end
+
+  def destroy
+    @board = current_user.boards.find(params[:id])
+    @board.destroy!
+    redirect_to boards_path, success: '投稿を削除しました'
+  end
+
   private
 
   def board_params
