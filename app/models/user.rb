@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   has_many :boards, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :like_boards, through: :likes, source: :board
 
   validates :email, uniqueness: true
   validates :email, presence: true
@@ -14,5 +16,18 @@ class User < ApplicationRecord
 
   def own?(object)
     id == object.user_id
+  end
+
+
+  def like(board)
+    like_boards << board
+  end
+
+  def unlike(board)
+    like_boards.destroy(board)
+  end
+
+  def like?(board)
+    like_boards.include?(board)
   end
 end

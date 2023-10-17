@@ -16,8 +16,9 @@
           </a>
 
           <div class="dropdown-menu dropdown-menu-right">
-            <%= link_to 'クリップ一覧', boards_path, class: 'dropdown-item' %>
             <%= link_to '新規作成', new_board_path, class: 'dropdown-item' %>
+            <%= link_to 'クリップ一覧', boards_path, class: 'dropdown-item' %>
+            <%= link_to 'お気に入りクリップ', likes_boards_path, class: 'dropdown-item' %>
           </div>
         </li>
 

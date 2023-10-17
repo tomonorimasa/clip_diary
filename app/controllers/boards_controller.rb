@@ -43,6 +43,10 @@ class BoardsController < ApplicationController
     redirect_to boards_path, success: '投稿を削除しました'
   end
 
+  def likes
+    @like_boards = current_user.like_boards.includes(:user).order(created_at: :desc)
+  end
+
   private
 
   def board_params
