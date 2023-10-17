@@ -16,7 +16,11 @@
             </div>
             <div class='col-md-9'>
               <br>
-              <%= render 'crud_menus', board: @board if current_user.own?(@board) %>
+              <% if current_user.own?(@board) %>
+                <%= render 'crud_menus', board: @board %>
+              <% else %>
+                <%= render 'like_button', board: @board  %>
+              <% end %>
               <ul class="list-inline">
                 <li class="list-inline-item">by <%= @board.user.decorate.nickname %></li>
                 <li class="list-inline-item"><%= l @board.created_at, format: :long  %></li>
