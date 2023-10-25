@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
   def index
-    @boards = Board.all.includes(:user).order(created_at: :desc)
+    @boards = Board.all.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -44,7 +44,7 @@ class BoardsController < ApplicationController
   end
 
   def likes
-    @like_boards = current_user.like_boards.includes(:user).order(created_at: :desc)
+    @like_boards = current_user.like_boards.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   private
