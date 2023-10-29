@@ -9,6 +9,7 @@
 /vendor
 .DS_Store
 /public/uploads/board/video/
+/public/uploads/user/avatar/
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
