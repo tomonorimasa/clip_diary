@@ -14,7 +14,9 @@
         <p class="card-text"><%= board.body %></p>
         <ul class="list-inline">
           <li class="list-inline-item">
-            <%= icon 'far', 'user' %>
+            <td style="width: 60px">
+              <%= image_tag board.user.avatar_url, class: 'rounded-circle', size: '25x25' %>
+            </td>
             <%= board.user.decorate.nickname %>
           </li>
           <li class="list-inline-item">
