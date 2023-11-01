@@ -1,6 +1,7 @@
 class BoardsController < ApplicationController
   def index
-    @boards = Board.all.includes(:user).order(created_at: :desc).page(params[:page])
+    @q = Board.ransack(params[:q])
+    @boards = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -44,7 +45,8 @@ class BoardsController < ApplicationController
   end
 
   def likes
-    @like_boards = current_user.like_boards.includes(:user).order(created_at: :desc).page(params[:page])
+    @q = current_user.like_boards.ransack(params[:q])
+    @like_boards = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   private
