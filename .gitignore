@@ -8,8 +8,7 @@
 /.bundle
 /vendor
 .DS_Store
-/public/uploads/board/video/
-/public/uploads/user/avatar/
+/public/uploads
 
 # Ignore the default SQLite database.
 /db/*.sqlite3

@@ -1,5 +1,7 @@
 {
   "name": "clip_diary",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "admin-lte": "^3.1"
+  }
 }
