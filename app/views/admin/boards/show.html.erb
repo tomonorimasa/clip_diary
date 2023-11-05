@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <h1><%= 'クリップ詳細' %></h1>
+      <div class="text-right mb-3">
+        <%= link_to '編集', edit_admin_board_path(@board), class: 'btn btn-success' %>
+        <%= link_to '削除', admin_board_path(@board), method: :delete, data: { confirm: '削除しますか？' }, class: 'btn btn-danger' %>
+      </div>
+      <table class="table table-bordered bg-white">
+        <tr>
+          <th scope="row"><%= Board.human_attribute_name(:id) %></th>
+          <td><%= @board.id %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= Board.human_attribute_name(:title) %></th>
+          <td><%= @board.title %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= Board.human_attribute_name(:user) %></th>
+          <td><%= @board.user.decorate.nickname %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= Board.human_attribute_name(:body) %></th>
+          <td><%= @board.body %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= Board.human_attribute_name(:created_at) %></th>
+          <td><%= l @board.created_at, format: :long %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= Board.human_attribute_name(:video) %></th>
+          <td><%= video_tag @board.video.url, autoplay: true, muted: false, class: 'video-player', controls: true %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

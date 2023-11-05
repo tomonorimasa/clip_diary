@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :like_boards, through: :likes, source: :board
 
+  enum role: { general: 0, admin: 1 }
+
   validates :email, uniqueness: true
   validates :email, presence: true
   validates :nickname, presence: true, length: { maximum: 255 }

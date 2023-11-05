@@ -1,0 +1,19 @@
+<tr>
+  <td>
+    <%= board.id %>
+  </td>
+  <td>
+    <%= link_to board.title, admin_board_path(board) %>
+  </td>
+  <td>
+    <%= board.user.decorate.nickname %>
+  </td>
+  <td>
+    <%= l board.created_at, format: :long %>
+  </td>
+  <td>
+    <%= link_to '詳細', admin_board_path(board), class: 'btn btn-info' %>
+    <%= link_to '編集', edit_admin_board_path(board), class: 'btn btn-success' %>
+    <%= link_to '削除', admin_board_path(board), method: :delete, data: { confirm: '削除しますか？' }, class: 'btn btn-danger' %>
+  </td>
+</tr>
