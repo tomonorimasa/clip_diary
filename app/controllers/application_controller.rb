@@ -5,8 +5,14 @@ class ApplicationController < ActionController::Base
   private
 
   def not_authenticated
-    flash[:warning] = 'ログインしてください'
-    redirect_to login_path
+    if current_user.nil?
+      user = User.find_by(email: 'guest@example.com')
+      auto_login(user) if user
+      redirect_to boards_path, success: 'ゲストユーザーとしてログインしました。'
+    else
+      flash[:warning] = 'ログインしてください'
+      redirect_to login_path
+    end
   end
 
   def set_search

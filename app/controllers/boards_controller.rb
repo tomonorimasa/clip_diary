@@ -1,4 +1,6 @@
 class BoardsController < ApplicationController
+  before_action :check_guest, only: [:create, :update, :destroy]
+
   def index
     @tag = Tag.find(params[:tag_id]) if params[:tag_id].present?
     @boards = @tag.boards.includes(:user).order(created_at: :desc).page(params[:page]).per(10) if @tag
@@ -59,5 +61,10 @@ class BoardsController < ApplicationController
 
   def board_params
     params.require(:board).permit(:title, :body, :video, :name)
+  end
+
+  def check_guest
+    return unless current_user.email == 'guest@example.com'
+    redirect_to boards_path, warning: 'ゲストユーザーはこのアクションを実行できません。'
   end
 end
