@@ -17,4 +17,20 @@ class UserSessionsController < ApplicationController
     logout
     redirect_to root_path, success: 'ログアウトしました'
   end
+
+  def guest_login
+    if current_user.nil?
+      user = User.find_by(email: 'guest@example.com')
+
+      if user.nil?
+        user = User.create(email: 'guest@example.com', password: SecureRandom.hex)
+      end
+
+      auto_login(user)  # ゲストユーザーをログイン
+
+      redirect_to boards_path, notice: 'ゲストユーザーとしてログインしました。'
+    else
+      redirect_to boards_path, notice: 'すでにゲストユーザーとしてログインしています。'
+    end
+  end
 end

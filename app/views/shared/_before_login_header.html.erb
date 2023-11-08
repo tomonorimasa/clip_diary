@@ -20,7 +20,7 @@
 
           <div class="dropdown-menu dropdown-menu-right">
             <%= link_to 'ログイン', login_path, class: 'dropdown-item' %>
-            <%= link_to 'ゲストログイン', '#', class: 'dropdown-item' %>
+            <%= link_to 'ゲストログイン', guest_login_path, method: :post, class: 'dropdown-item' %>
           </div>
         </li>
       </ul>

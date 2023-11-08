@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_user,only: %i[edit update]
+  before_action :set_user,:check_guest, only: %i[edit update]
 
   def edit
   end
@@ -20,5 +20,10 @@ class ProfilesController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email,:nickname,:avatar,:avatar_cash)
+  end
+
+  def check_guest
+    return unless current_user.email == 'guest@example.com'
+    redirect_to boards_path, warning: 'ゲストユーザーはこのアクションを実行できません。'
   end
 end
