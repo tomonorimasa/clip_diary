@@ -29,7 +29,7 @@ class ProfilesController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email,:nickname,:avatar,:avatar_cash)
+    params.require(:user).permit(:email, :nickname, :avatar, :avatar_cash, :description)
   end
 
   def check_guest

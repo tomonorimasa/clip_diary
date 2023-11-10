@@ -4,13 +4,13 @@
       <h1><%= 'プロフィール' %></h1>
       <%= form_with model: @user, url: profile_path, local: true do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
-        <%= f.label :email %>
+        <%= f.label :'メールアドレス' %>
         <%= f.email_field :email, class: 'form-control mb-3' %>
 
-        <%= f.label :nickname %>
+        <%= f.label :'ニックネーム' %>
         <%= f.text_field :nickname, class: 'form-control mb-3' %>
 
-        <%= f.label :avatar %>
+        <%= f.label :'アバター' %>
         <%= f.file_field :avatar, onchange: 'previewFileWithId(preview)', class: 'form-control mb-3', accept: 'image/*' %>
         <%= f.hidden_field :avatar_cache %>
 
@@ -20,6 +20,8 @@
                         id: 'preview',
                         size: '100x100' %>
         </div>
+        <%= f.label :'自己紹介' %>
+        <%= f.text_area :description, class: 'form-control mb-3', rows: 5 %>
         <%= f.submit class: 'btn btn-primary' %>
       <% end %>
     </div>

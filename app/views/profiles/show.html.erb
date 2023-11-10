@@ -15,6 +15,17 @@
       <hr>
       <div class="row">
         <div class="col-12">
+          <h2 class="mb-4">自己紹介</h2>
+          <% if @user.description.present? %>
+            <p><%= @user.description %></p>
+          <% else %>
+            <p>まだ自己紹介文がありません。</p>
+          <% end %>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-12">
           <h2 class="mb-4">投稿クリップ一覧</h2>
           <div class="row">
             <% if @boards.present? %>
