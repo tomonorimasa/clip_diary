@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   add_flash_types :success, :info, :warning, :danger
   before_action :require_login, :set_search
+  helper_method :current_user_boards
   
   private
 
@@ -18,5 +19,9 @@ class ApplicationController < ActionController::Base
   def set_search
     @q_header = Board.ransack(params[:q])
     @boards = @q_header.result(distinct: true).includes(%i[user tags]).order(created_at: :desc).page(params[:page]).per(10)
+  end
+
+  def current_user_boards
+    current_user.boards
   end
 end

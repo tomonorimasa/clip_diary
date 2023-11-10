@@ -3,14 +3,11 @@
     <%= image_tag comment.user.avatar_url, class: 'rounded-circle', size: '50x50' %>
   </td>
   <td>
-    <h3 class="small"><%= comment.user.decorate.nickname %></h3>
+    <h3 class="small">
+      <%= link_to comment.user.decorate.nickname, profile_path(id: comment.user.id) %>
+    </h3>
     <div id="js-comment-<%= comment.id %>">
       <%= simple_format(comment.body) %>
-    </div>
-    <div id="js-textarea-comment-box-<%= comment.id %>" style="display: none;">
-      <textarea id="js-textarea-comment-<%= comment.id %>" class="form-control mb-1"><%= comment.body %></textarea>
-      <button class="btn btn-light js-button-edit-comment-cancel" data-comment-id="<%= comment.id %>">キャンセル</button>
-      <button class="btn btn-success js-button-comment-update" data-comment-id="<%= comment.id %>">更新</button>
     </div>
   </td>
 

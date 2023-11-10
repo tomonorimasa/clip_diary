@@ -1,0 +1,10 @@
+<table class="table">
+  <tr>
+    <th scope="row"><%= 'ニックネーム' %></th>
+    <td><%= @user.decorate.nickname %></td>
+  </tr>
+  <tr>
+    <th scope="row"><%= 'アバター画像' %></th>
+    <td><%= image_tag @user.avatar.url, class: 'rounded-circle', size: '75x75' %></td>
+  </tr>
+</table>

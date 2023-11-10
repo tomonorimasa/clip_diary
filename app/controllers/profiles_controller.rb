@@ -13,6 +13,16 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find_by(id: params[:id])
+    if @user
+      @boards = @user.boards.order(created_at: :desc).page(params[:page]).per(10)
+    else
+      @user = User.find(current_user.id)
+      @boards = @user.boards.order(created_at: :desc).page(params[:page]).per(10)
+    end
+  end
+
   private
   def set_user
     @user = User.find(current_user.id)
